@@ -1,6 +1,13 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import QuoteForm from "@/components/QuoteForm";
+
+interface UserQuote {
+  name: string;
+  email: string;
+  quote: string;
+  date: string;
+}
 
 const quoteData = [
   {
@@ -37,6 +44,15 @@ const quoteData = [
 
 const Blog = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
+  const [userQuotes, setUserQuotes] = useState<UserQuote[]>([]);
+  
+  // Load user quotes from localStorage on component mount
+  useEffect(() => {
+    const savedQuotes = localStorage.getItem('userQuotes');
+    if (savedQuotes) {
+      setUserQuotes(JSON.parse(savedQuotes));
+    }
+  }, []);
   
   const nextQuote = () => {
     setCurrentQuote((prev) => (prev + 1) % quoteData.length);
@@ -44,6 +60,12 @@ const Blog = () => {
   
   const prevQuote = () => {
     setCurrentQuote((prev) => (prev - 1 + quoteData.length) % quoteData.length);
+  };
+
+  // Format date for display
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   };
 
   return (
@@ -122,6 +144,26 @@ const Blog = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* User Submitted Quotes */}
+              {userQuotes.length > 0 && (
+                <div className="animate-fade-in-delay-1 mt-12">
+                  <h2 className="heading-underline mb-6 text-2xl font-bold">Community Quotes</h2>
+                  <div className="space-y-4">
+                    {userQuotes.map((quote, index) => (
+                      <div key={index} className="rounded-lg bg-white p-6 shadow-md">
+                        <blockquote className="mb-2 text-lg font-medium italic text-gray-800">
+                          "{quote.quote}"
+                        </blockquote>
+                        <div className="flex items-center justify-between">
+                          <cite className="text-gray-600">— {quote.name}</cite>
+                          <p className="text-sm text-gray-500">{formatDate(quote.date)}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               
               {/* Recent Blog Posts */}
               <div className="animate-fade-in-delay-2 mt-12">

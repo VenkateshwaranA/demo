@@ -27,6 +27,23 @@ const Services = () => {
   });
   
   const onSubmit = (data: QuoteFormValues) => {
+    // Create new quote object
+    const newQuote = {
+      name: data.name,
+      email: data.email || "",
+      quote: data.quote,
+      date: new Date().toISOString()
+    };
+    
+    // Get existing quotes from localStorage
+    const existingQuotes = JSON.parse(localStorage.getItem('userQuotes') || '[]');
+    
+    // Add new quote to the array
+    const updatedQuotes = [newQuote, ...existingQuotes];
+    
+    // Save back to localStorage
+    localStorage.setItem('userQuotes', JSON.stringify(updatedQuotes));
+    
     toast.success("Quote submitted successfully!");
     form.reset();
     setQuoteText("");
@@ -263,7 +280,7 @@ const Services = () => {
                 <CardTitle className="text-2xl">Portfolio</CardTitle>
                 <CardDescription className="text-gray-600">Your Professional Identity</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6 pt-6">
+              <CardContent className="space-y-4 pt-6">
                 <div className="rounded-lg bg-gray-50 p-5">
                   <div className="flex items-center space-x-4">
                     <div className="h-16 w-16 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-xl">JS</div>
@@ -295,11 +312,37 @@ const Services = () => {
                 <div>
                   <h3 className="mb-3 font-semibold">Recent Projects</h3>
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="aspect-video rounded bg-accent/5 flex items-center justify-center">Project 1</div>
-                    <div className="aspect-video rounded bg-accent/5 flex items-center justify-center">Project 2</div>
-                    <div className="aspect-video rounded bg-accent/5 flex items-center justify-center">Project 3</div>
-                    <div className="aspect-video rounded bg-accent/5 flex items-center justify-center">Project 4</div>
+                    <div className="aspect-video rounded bg-accent/5 flex items-center justify-center">
+                      <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 1" className="h-full w-full object-cover rounded" />
+                    </div>
+                    <div className="aspect-video rounded bg-accent/5 flex items-center justify-center">
+                      <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 2" className="h-full w-full object-cover rounded" />
+                    </div>
+                    <div className="aspect-video rounded bg-accent/5 flex items-center justify-center">
+                      <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 3" className="h-full w-full object-cover rounded" />
+                    </div>
+                    <div className="aspect-video rounded bg-accent/5 flex items-center justify-center">
+                      <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Project 4" className="h-full w-full object-cover rounded" />
+                    </div>
                   </div>
+                </div>
+
+                <div>
+                  <h3 className="mb-3 font-semibold">Awards & Certifications</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-center">
+                      <CheckCircle className="mr-2 h-4 w-4 text-accent" />
+                      <span>Best UX Design Award 2024</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="mr-2 h-4 w-4 text-accent" />
+                      <span>Google UX Design Professional Certificate</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="mr-2 h-4 w-4 text-accent" />
+                      <span>Adobe Certified Professional</span>
+                    </li>
+                  </ul>
                 </div>
               </CardContent>
               <CardFooter className="border-t p-6 text-center text-sm text-gray-500">

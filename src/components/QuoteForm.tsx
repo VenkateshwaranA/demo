@@ -1,6 +1,15 @@
 
 import { useState, FormEvent, ChangeEvent } from "react";
 import { toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
+interface Quote {
+  name: string;
+  email: string;
+  quote: string;
+  date: string;
+}
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -45,6 +54,23 @@ const QuoteForm = () => {
     e.preventDefault();
     
     if (validateForm()) {
+      // Create new quote object
+      const newQuote: Quote = {
+        name: formData.name,
+        email: formData.email,
+        quote: formData.quote,
+        date: new Date().toISOString()
+      };
+      
+      // Get existing quotes from localStorage
+      const existingQuotes = JSON.parse(localStorage.getItem('userQuotes') || '[]');
+      
+      // Add new quote to the array
+      const updatedQuotes = [newQuote, ...existingQuotes];
+      
+      // Save back to localStorage
+      localStorage.setItem('userQuotes', JSON.stringify(updatedQuotes));
+      
       toast.success("Thank you for submitting your quote!");
       setFormData({ name: "", email: "", quote: "" });
     }
@@ -63,26 +89,24 @@ const QuoteForm = () => {
           <label htmlFor="name" className="mb-1 block text-sm font-medium">
             Name <span className="text-red-500">*</span>
           </label>
-          <input
+          <Input
             id="name"
             name="name"
             type="text"
-            className="form-input"
             value={formData.name}
             onChange={handleChange}
           />
-          {errors.name && <p className="form-error">{errors.name}</p>}
+          {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
         </div>
         
         <div className="mb-4">
           <label htmlFor="email" className="mb-1 block text-sm font-medium">
             Email (Optional)
           </label>
-          <input
+          <Input
             id="email"
             name="email"
             type="email"
-            className="form-input"
             value={formData.email}
             onChange={handleChange}
           />
@@ -92,28 +116,27 @@ const QuoteForm = () => {
           <label htmlFor="quote" className="mb-1 block text-sm font-medium">
             Your Quote <span className="text-red-500">*</span>
           </label>
-          <textarea
+          <Textarea
             id="quote"
             name="quote"
             rows={4}
-            className="form-textarea"
             value={formData.quote}
             onChange={handleChange}
           />
-          {errors.quote && <p className="form-error">{errors.quote}</p>}
+          {errors.quote && <p className="mt-1 text-sm text-red-500">{errors.quote}</p>}
         </div>
         
         <div className="flex items-center justify-end space-x-2">
           <button
             type="button"
-            className="btn border border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+            className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
             onClick={handleCancel}
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="btn btn-primary"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary/90"
             disabled={!formData.quote.trim()}
           >
             Submit
