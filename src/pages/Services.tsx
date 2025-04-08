@@ -57,8 +57,8 @@ const Services = () => {
             {/* Blog Card */}
             <Card className="animate-fade-in overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader className="bg-primary/5">
-                <CardTitle className="text-2xl">Inspire and Get Inspired</CardTitle>
-                <CardDescription className="text-gray-600">A Few Words Can Change Lives – Read & Share Motivation!</CardDescription>
+                <CardTitle className="text-2xl">Blog</CardTitle>
+                <CardDescription className="text-gray-600">Inspire and Get Inspired</CardDescription>
               </CardHeader>
               <CardContent className="pt-6">
                 <div className="mb-6">
@@ -176,8 +176,8 @@ const Services = () => {
             {/* E-Commerce Card */}
             <Card className="animate-fade-in-delay-1 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader className="bg-secondary/5">
-                <CardTitle className="text-2xl">Sports & Fitness Collection</CardTitle>
-                <CardDescription className="text-gray-600">A Sneak Peek into Your Future Online Store!</CardDescription>
+                <CardTitle className="text-2xl">E-Commerce</CardTitle>
+                <CardDescription className="text-gray-600">Sports & Fitness Collection</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6 pt-6">
                 {/* Product 1 */}
@@ -260,8 +260,8 @@ const Services = () => {
             {/* Portfolio Card */}
             <Card className="animate-fade-in-delay-2 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <CardHeader className="bg-accent/5">
-                <CardTitle className="text-2xl">Your Professional Identity</CardTitle>
-                <CardDescription className="text-gray-600">A Portfolio Website That Speaks for You!</CardDescription>
+                <CardTitle className="text-2xl">Portfolio</CardTitle>
+                <CardDescription className="text-gray-600">Your Professional Identity</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6 pt-6">
                 <div className="rounded-lg bg-gray-50 p-5">
