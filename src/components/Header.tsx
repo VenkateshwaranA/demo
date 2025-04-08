@@ -38,7 +38,7 @@ const Header = () => {
             <div className="mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
               <span className="text-xl font-bold">DS</span>
             </div>
-            <span className="hidden sm:inline">DigiSpark</span>
+            <span className="hidden sm:inline">Company Name</span>
           </div>
         </Link>
 

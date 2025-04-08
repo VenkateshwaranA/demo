@@ -18,7 +18,7 @@ const Index = () => {
                 One Website, Multiple Possibilities - We Bring Your Ideas to Life!
               </p>
               <p className="animate-fade-in-delay-2 mt-4 text-gray-600">
-                At DigiSpark, we specialize in creating versatile digital platforms that adapt to your needs. 
+                At Company Name, we specialize in creating versatile digital platforms that adapt to your needs. 
                 From engaging blogs to powerful e-commerce stores and professional portfolios - we build websites 
                 that grow with your ambitions and connect you with your audience.
               </p>
