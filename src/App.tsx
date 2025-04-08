@@ -9,9 +9,6 @@ import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Services from "./pages/Services";
-import Blog from "./pages/Blog";
-import Ecommerce from "./pages/Ecommerce";
-import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
@@ -28,9 +25,6 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/services" element={<Services />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/ecommerce" element={<Ecommerce />} />
-              <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

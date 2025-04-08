@@ -63,30 +63,6 @@ const Header = () => {
             Services
           </Link>
           <Link
-            to="/blog"
-            className={`nav-link animate-fade-in-delay-1 ${
-              isActive("/blog") ? "nav-link-active" : ""
-            }`}
-          >
-            Blog
-          </Link>
-          <Link
-            to="/ecommerce"
-            className={`nav-link animate-fade-in-delay-2 ${
-              isActive("/ecommerce") ? "nav-link-active" : ""
-            }`}
-          >
-            E-Commerce
-          </Link>
-          <Link
-            to="/portfolio"
-            className={`nav-link animate-fade-in-delay-2 ${
-              isActive("/portfolio") ? "nav-link-active" : ""
-            }`}
-          >
-            Portfolio
-          </Link>
-          <Link
             to="/contact"
             className={`nav-link animate-fade-in-delay-3 ${
               isActive("/contact") ? "nav-link-active" : ""
@@ -128,27 +104,6 @@ const Header = () => {
             onClick={() => setIsOpen(false)}
           >
             Services
-          </Link>
-          <Link
-            to="/blog"
-            className="block py-2"
-            onClick={() => setIsOpen(false)}
-          >
-            Blog
-          </Link>
-          <Link
-            to="/ecommerce"
-            className="block py-2"
-            onClick={() => setIsOpen(false)}
-          >
-            E-Commerce
-          </Link>
-          <Link
-            to="/portfolio"
-            className="block py-2"
-            onClick={() => setIsOpen(false)}
-          >
-            Portfolio
           </Link>
           <Link
             to="/contact"

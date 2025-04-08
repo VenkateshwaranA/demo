@@ -17,9 +17,6 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><Link to="/" className="hover:text-accent">Home</Link></li>
               <li><Link to="/services" className="hover:text-accent">Services</Link></li>
-              <li><Link to="/blog" className="hover:text-accent">Blog</Link></li>
-              <li><Link to="/ecommerce" className="hover:text-accent">E-Commerce</Link></li>
-              <li><Link to="/portfolio" className="hover:text-accent">Portfolio</Link></li>
               <li><Link to="/contact" className="hover:text-accent">Contact Us</Link></li>
             </ul>
           </div>
