@@ -16,7 +16,7 @@ import Portfolio from "./pages/Portfolio";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
+  // <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -37,7 +37,7 @@ const App = () => (
         </div>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
+  // </QueryClientProvider>
 );
 
 export default App;

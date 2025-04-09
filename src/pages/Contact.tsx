@@ -160,7 +160,7 @@ const Contact = () => {
             </div>
             
             {/* Contact Form */}
-            <div className="animate-fade-in-right">
+            {/* <div className="animate-fade-in-right">
               <div className="rounded-lg bg-white p-8 shadow-lg">
                 <h2 className="mb-6 text-2xl font-bold">Send Us a Message</h2>
                 <form onSubmit={handleSubmit}>
@@ -217,7 +217,7 @@ const Contact = () => {
                   </button>
                 </form>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
