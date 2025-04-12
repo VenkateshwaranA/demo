@@ -25,13 +25,8 @@ const Footer = () => {
             <address className="not-italic text-sm text-gray-300">
               <p>123 Digital Drive</p>
               <p>Web City, WC 12345</p>
-<<<<<<< HEAD
-              <p className="mt-2">Phone: (555) 123-4567</p>
-              <p>Email: hello@Company Name.com</p>
-=======
               {/* <p className="mt-2">Phone: (555) 123-4567</p> */}
               {/* <p>Email: exmp@DIGITAL SOLUTION.com</p> */}
->>>>>>> a24df78183c36cf0ab58eaf3fd752cc997636c95
             </address>
           </div>
         </div>
