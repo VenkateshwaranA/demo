@@ -112,16 +112,6 @@ const Services = () => {
                       <p className="italic text-gray-700">"The best way to predict the future is to create it."</p>
                       <p className="text-right text-sm text-gray-500">- Peter Drucker</p>
                     </div>
-
-                    {localStorage.getItem('userQuotes') && (
-                      JSON.parse(localStorage.getItem('userQuotes') || '[]').map((quote: { name: string; email?: string; quote: string; date: string }, index: number) => (
-
-                        <div key={index} className="rounded-md bg-primary/5 p-3">
-                          <p className="italic text-gray-700">{quote.quote}</p>
-                          <p className="text-right text-sm text-gray-500">- {quote.name}</p>
-                        </div>
-                      ))
-                      )}
                   </div>
                 </div>
               </CardContent>

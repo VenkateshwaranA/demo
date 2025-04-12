@@ -1,12 +1,24 @@
 
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart, BookOpen, Briefcase, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,11 +50,11 @@ const Header = () => {
             <div className="mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
               <span className="text-xl font-bold">DS</span>
             </div>
-            <span className="hidden sm:inline">Company Name</span>
+            <span className="hidden sm:inline">DIGITAL SOLUTION</span>
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation with Hover Dropdown */}
         <nav className="hidden space-x-1 md:flex">
           {location.pathname !== "/" && (
             <Link
@@ -54,14 +66,49 @@ const Header = () => {
               Home
             </Link>
           )}
-          <Link
-            to="/services"
-            className={`nav-link animate-fade-in-delay-1 ${
-              isActive("/services") ? "nav-link-active" : ""
-            }`}
+          
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
           >
-            Services
-          </Link>
+            <button
+              className={`nav-link animate-fade-in-delay-1 flex items-center ${
+                isActive("/services") ? "nav-link-active" : ""
+              }`}
+            >
+              Services
+              <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" 
+                style={{ transform: isServicesOpen ? 'rotate(180deg)' : 'rotate(0)' }}
+              />
+            </button>
+            {isServicesOpen && (
+              <div className="absolute left-0 mt-1 min-w-[180px] rounded-md bg-white py-2 shadow-lg">
+                <Link 
+                  to="/blog" 
+                  className="flex w-full items-center gap-2 px-4 py-2 hover:bg-accent/20"
+                >
+                  <BookOpen className="h-4 w-4" />
+                  <span>Blog</span>
+                </Link>
+                <Link 
+                  to="/ecommerce" 
+                  className="flex w-full items-center gap-2 px-4 py-2 hover:bg-accent/20"
+                >
+                  <ShoppingCart className="h-4 w-4" />
+                  <span>E-Commerce</span>
+                </Link>
+                <Link 
+                  to="/portfolio" 
+                  className="flex w-full items-center gap-2 px-4 py-2 hover:bg-accent/20"
+                >
+                  <Briefcase className="h-4 w-4" />
+                  <span>Portfolio</span>
+                </Link>
+              </div>
+            )}
+          </div>
+          
           <Link
             to="/contact"
             className={`nav-link animate-fade-in-delay-3 ${
@@ -104,6 +151,27 @@ const Header = () => {
             onClick={() => setIsOpen(false)}
           >
             Services
+          </Link>
+          <Link
+            to="/blog"
+            className="ml-4 block py-2"
+            onClick={() => setIsOpen(false)}
+          >
+            - Blog
+          </Link>
+          <Link
+            to="/portfolio"
+            className="ml-4 block py-2"
+            onClick={() => setIsOpen(false)}
+          >
+            - Portfolio
+          </Link>
+          <Link
+            to="/ecommerce"
+            className="ml-4 block py-2"
+            onClick={() => setIsOpen(false)}
+          >
+            - E-Commerce
           </Link>
           <Link
             to="/contact"

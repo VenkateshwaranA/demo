@@ -10,8 +10,10 @@ interface Quote {
   quote: string;
   date: string;
 }
-
-const QuoteForm = () => {
+interface QuoteFormProps {
+  setUserQuotes: (quotes: Quote[]) => void;
+}
+const QuoteForm = ({ setUserQuotes }: QuoteFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,7 +27,6 @@ const QuoteForm = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    
     // Clear errors when user types
     if (errors[name as keyof typeof errors]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -35,24 +36,20 @@ const QuoteForm = () => {
   const validateForm = () => {
     let valid = true;
     const newErrors = { name: "", quote: "" };
-    
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
       valid = false;
     }
-    
     if (!formData.quote.trim()) {
       newErrors.quote = "Quote is required";
       valid = false;
     }
-    
     setErrors(newErrors);
     return valid;
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    
     if (validateForm()) {
       // Create new quote object
       const newQuote: Quote = {
@@ -61,16 +58,17 @@ const QuoteForm = () => {
         quote: formData.quote,
         date: new Date().toISOString()
       };
-      
+
       // Get existing quotes from localStorage
       const existingQuotes = JSON.parse(localStorage.getItem('userQuotes') || '[]');
-      
+
       // Add new quote to the array
       const updatedQuotes = [newQuote, ...existingQuotes];
-      
+
+      setUserQuotes(updatedQuotes);
       // Save back to localStorage
       localStorage.setItem('userQuotes', JSON.stringify(updatedQuotes));
-      
+
       toast.success("Thank you for submitting your quote!");
       setFormData({ name: "", email: "", quote: "" });
     }
@@ -98,7 +96,6 @@ const QuoteForm = () => {
           />
           {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
         </div>
-        
         <div className="mb-4">
           <label htmlFor="email" className="mb-1 block text-sm font-medium">
             Email (Optional)
@@ -111,7 +108,6 @@ const QuoteForm = () => {
             onChange={handleChange}
           />
         </div>
-        
         <div className="mb-4">
           <label htmlFor="quote" className="mb-1 block text-sm font-medium">
             Your Quote <span className="text-red-500">*</span>
@@ -125,7 +121,6 @@ const QuoteForm = () => {
           />
           {errors.quote && <p className="mt-1 text-sm text-red-500">{errors.quote}</p>}
         </div>
-        
         <div className="flex items-center justify-end space-x-2">
           <button
             type="button"
