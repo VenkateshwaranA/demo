@@ -254,6 +254,13 @@ const Contact = () => {
 
           <div className="mx-auto grid max-w-3xl gap-6">
             {/* FAQ Item 1 */}
+            <div className="animate-fade-in-delay-2 rounded-lg bg-white p-6 shadow">
+              <h3 className="text-lg font-semibold">Can you explain about your demo website?</h3>
+              <p className="mt-2 text-gray-600">
+                Our demo website is created to give you a clear idea of different website styles. It does not have any active features. You can see examples of how a blog, an e-commerce store, or a portfolio site can look. We are ready to turn your ideas into a fully functional, customized website that meets your exact needs.
+              </p>
+            </div>
+            {/* FAQ Item 21.1 */}
             <div className="animate-fade-in rounded-lg bg-white p-6 shadow">
               <h3 className="text-lg font-semibold">How long does it take to build a website?</h3>
               <p className="mt-2 text-gray-600">
@@ -263,15 +270,8 @@ const Contact = () => {
                 We'll provide a detailed timeline during our initial consultation.
               </p>
             </div>
-              
-              
-              {/* FAQ Item 21.1 */}
-            <div className="animate-fade-in-delay-2 rounded-lg bg-white p-6 shadow">
-              <h3 className="text-lg font-semibold">Can you explain about your demo website?</h3>
-              <p className="mt-2 text-gray-600">
-                Our demo website is created to give you a clear idea of different website styles. It does not have any active features. You can see examples of how a blog, an e-commerce store, or a portfolio site can look. We are ready to turn your ideas into a fully functional, customized website that meets your exact needs.
-              </p>
-            </div>
+
+
 
             {/* FAQ Item 2 */}
             <div className="animate-fade-in-delay-1 rounded-lg bg-white p-6 shadow">

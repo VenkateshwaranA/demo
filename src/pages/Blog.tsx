@@ -288,7 +288,8 @@ const Blog = () => {
       {/* Main Content */}
       <section className="py-16 bg-gray-50 mt-9">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-12 md:grid-cols-3">
+        <h2 className="text-2xl font-bold text-center mb-8">Stay motivated, Stay in trend</h2>
+        <div className="grid gap-12 md:grid-cols-3">
             {/* Left Sidebar */}
             <div className="md:col-span-2">
               <div className="animate-fade-in mb-12">

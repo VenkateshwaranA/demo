@@ -45,8 +45,8 @@ const Portfolio = () => {
   const [filter, setFilter] = useState("All");
   const categories = ["All", "UI/UX Design", "Web Development", "Mobile App", "Branding"];
 
-  const filteredProjects = filter === "All" 
-    ? projects 
+  const filteredProjects = filter === "All"
+    ? projects
     : projects.filter(project => project.category === filter);
 
   return (
@@ -71,9 +71,9 @@ const Portfolio = () => {
             <div className="hidden animate-fade-in-delay-3 md:block">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-lg blur-lg"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Portfolio" 
+                <img
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Portfolio"
                   className="relative rounded-lg shadow-2xl"
                 />
               </div>
@@ -87,9 +87,9 @@ const Portfolio = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-12 md:grid-cols-2">
             <div className="animate-fade-in">
-              <img 
-                src="/assets/portfolio-aboutme.jpg" 
-                alt="About Me" 
+              <img
+                src="/assets/portfolio-aboutme.jpg"
+                alt="About Me"
                 className="rounded-lg shadow-lg"
                 style={{ width: "100%", height: "100%" }}
               />
@@ -99,13 +99,13 @@ const Portfolio = () => {
                 About Me
               </h2>
               <p className="animate-fade-in-delay-1 mb-4 text-gray-700">
-                I'm a passionate web developer and designer with over 5 years of experience creating 
-                beautiful, functional websites and applications. My approach combines clean code, 
+                I'm a passionate web developer and designer with over 5 years of experience creating
+                beautiful, functional websites and applications. My approach combines clean code,
                 intuitive user interfaces, and modern design principles.
               </p>
               <p className="animate-fade-in-delay-2 mb-6 text-gray-700">
-                With expertise in front-end and back-end development, I deliver complete solutions 
-                that help businesses achieve their digital goals. I'm committed to ongoing learning 
+                With expertise in front-end and back-end development, I deliver complete solutions
+                that help businesses achieve their digital goals. I'm committed to ongoing learning
                 and staying updated with the latest technologies and trends.
               </p>
               <div className="animate-fade-in-delay-3 grid grid-cols-2 gap-4">
@@ -143,35 +143,34 @@ const Portfolio = () => {
               Here's a showcase of my recent work and projects
             </p>
           </div>
-          
+
           {/* Filter */}
           <div className="animate-fade-in-delay-2 mb-8 flex flex-wrap justify-center gap-2">
             {categories.map((category, index) => (
               <button
                 key={index}
-                className={`rounded-full px-4 py-1 text-sm ${
-                  filter === category 
-                    ? "bg-primary text-white" 
+                className={`rounded-full px-4 py-1 text-sm ${filter === category
+                    ? "bg-primary text-white"
                     : "bg-white text-gray-700 hover:bg-gray-100"
-                }`}
+                  }`}
                 onClick={() => setFilter(category)}
               >
                 {category}
               </button>
             ))}
           </div>
-          
+
           {/* Projects Grid */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project) => (
-              <div 
-                key={project.id} 
+              <div
+                key={project.id}
                 className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="relative h-64">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
+                  <img
+                    src={project.image}
+                    alt={project.title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
@@ -189,7 +188,7 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Testimonials */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6">
@@ -201,7 +200,7 @@ const Portfolio = () => {
               What my clients say about working with me
             </p>
           </div>
-          
+
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* Testimonial 1 */}
             <div className="animate-fade-in rounded-lg bg-white p-6 shadow">
@@ -217,9 +216,9 @@ const Portfolio = () => {
               </blockquote>
               <div className="flex items-center">
                 <div className="h-10 w-10 overflow-hidden rounded-full bg-gray-200">
-                  <img 
-                    src="https://randomuser.me/api/portraits/women/68.jpg" 
-                    alt="Client" 
+                  <img
+                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    alt="Client"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -229,7 +228,7 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Testimonial 2 */}
             <div className="animate-fade-in-delay-1 rounded-lg bg-white p-6 shadow">
               <div className="mb-4 flex">
@@ -244,9 +243,9 @@ const Portfolio = () => {
               </blockquote>
               <div className="flex items-center">
                 <div className="h-10 w-10 overflow-hidden rounded-full bg-gray-200">
-                  <img 
-                    src="https://randomuser.me/api/portraits/men/34.jpg" 
-                    alt="Client" 
+                  <img
+                    src="https://randomuser.me/api/portraits/men/34.jpg"
+                    alt="Client"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -256,7 +255,7 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Testimonial 3 */}
             <div className="animate-fade-in-delay-2 rounded-lg bg-white p-6 shadow">
               <div className="mb-4 flex">
@@ -271,9 +270,9 @@ const Portfolio = () => {
               </blockquote>
               <div className="flex items-center">
                 <div className="h-10 w-10 overflow-hidden rounded-full bg-gray-200">
-                  <img 
-                    src="https://randomuser.me/api/portraits/women/46.jpg" 
-                    alt="Client" 
+                  <img
+                    src="https://randomuser.me/api/portraits/women/46.jpg"
+                    alt="Client"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -286,13 +285,12 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Footer Note */}
       <section className="bg-gray-800 text-white py-10">
         <div className="container mx-auto px-4 md:px-6">
           <p className="animate-fade-in text-center italic">
-            This is a Sample. Your Portfolio will be customized based on your profession.
-          </p>
+            This demo showcase the structure. Your actual portfolio will be customized for your career.          </p>
         </div>
       </section>
     </>

@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 -mb-10 border-t border-primary-light pt-5 text-center text-sm text-gray-300">
-          <p>This is a Sample demo Website for your information</p>
+          <p>This is a Sample demo Website created for informational purposes. Features shown here are not active.</p>
         </div>
       </div>
     </footer>
