@@ -2,17 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X, ShoppingCart, BookOpen, Briefcase, ChevronDown } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -146,13 +136,13 @@ const Header = () => {
               Home
             </Link>
           )}
-          <Link
+          {/* <Link
             to="/services"
             className="block py-2"
             onClick={() => setIsOpen(false)}
           >
             Services
-          </Link>
+          </Link> */}
           <Link
             to="/blog"
             className="ml-4 block py-2"

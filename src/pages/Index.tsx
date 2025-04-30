@@ -18,8 +18,8 @@ const Index = () => {
                 One Website, Multiple Possibilities - We Bring Your Ideas to Life!
               </p>
               <p className="animate-fade-in-delay-2 mt-4 text-gray-600">
-                At DIGITAL SOLUTION, we specialize in creating versatile digital platforms that adapt to your needs. 
-                From engaging blogs to powerful e-commerce stores and professional portfolios - we build websites 
+                At DIGITAL SOLUTION, we specialize in creating versatile digital platforms that adapt to your needs.
+                From engaging blogs to powerful e-commerce stores and professional portfolios - we build websites
                 that grow with your ambitions and connect you with your audience.
               </p>
               <div className="animate-fade-in-delay-3 mt-8 flex flex-wrap gap-4">
@@ -31,12 +31,19 @@ const Index = () => {
                 </Link>
               </div>
             </div>
-            <div className="hidden animate-fade-in-right shadow-orange-400 md:block">
+            {/* <div className="hidden animate-fade-in-right shadow-orange-400 md:block">
               <img 
                 // src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
                 src="/assets/one.png" 
                 alt="Digital Solutions" 
                 className="rounded-lg shadow-xl"
+              />
+            </div> */}
+            <div className="animate-fade-in-right order-first md:order-last md:shadow-orange-400">
+              <img
+                src="/assets/one.png"
+                alt="Digital Solutions"
+                className="w-full max-w-md mx-auto rounded-lg shadow-xl"
               />
             </div>
           </div>
@@ -51,30 +58,30 @@ const Index = () => {
               Our Services
             </h2>
           </div>
-          
+
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            <ServiceCard 
+            <ServiceCard
               title="Blog"
               description="Write, Inspire, and Share Motivational Thoughts"
               icon={<PenSquare className="h-7 w-7" />}
               href="/blog"
             />
-            
-            <ServiceCard 
+
+            <ServiceCard
               title="E-Commerce"
               description="Turn Your Passion into an Online Store"
               icon={<ShoppingCart className="h-7 w-7" />}
               href="/ecommerce"
             />
-            
-            <ServiceCard 
+
+            <ServiceCard
               title="Portfolio"
               description="Your Personal Brand, Professionally Designed"
               icon={<UserCircle className="h-7 w-7" />}
               href="/portfolio"
             />
           </div>
-          
+
           {/* <div className="mt-12 text-center">
             <Link to="/services" className="btn btn-primary inline-flex items-center">
               Explore Our Services
